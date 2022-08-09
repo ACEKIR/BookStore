@@ -1,0 +1,38 @@
+﻿@model IEnumerable<WebApplication2.Models.Book>
+ 
+<h2>Список книг</h2>
+<p ><a asp-action="Create">Добавить книгу</a></p>
+<table class="table">
+
+     <tr>
+         <th>
+             <a asp-action="Index" asp-route-sortOrder="@ViewBag.TitleSort">
+                 Название
+             </a>
+          </th>
+         <th>
+              <a asp-action="Index" asp-route-sortOrder="@ViewBag.AutorSort">
+                  Автор
+              </a>
+          </th>
+         <th>
+             <a asp-action="Index" asp-route-sortOrder="@ViewBag.YearSort">
+                 Год издания
+             </a>
+         </th>
+     </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Title</td>
+            <td>@item.Autor</td>
+            <td>@item.Year</td>
+            <td>
+                <form asp-controller="Home" asp-action="Delete" method="post"  asp-route-id="@item.Id">
+                    <input type="submit" value="Удалить" />
+                </form>
+            </td>
+        </tr>
+
+    }
+</table>

@@ -1,0 +1,20 @@
+﻿@model WebApplication2.Models.Book
+ 
+<h2>Добавление книги</h2>
+<form asp-action="create" asp-controller="home">
+    <p>
+        <label asp-for="Title">Название</label><br />
+        <input type="text" asp-for="Title" />
+    </p>
+     <p>
+        <label asp-for="Autor">Автор</label><br />
+        <input type="text" asp-for="Autor" />
+    </p>
+    <p>
+        <label asp-for="Year">Год издания</label><br />
+        <input type="number" asp-for="Year" />
+    </p>
+    <p>
+        <input type="submit" value="Отправить" />
+    </p>
+</form>
